@@ -19,44 +19,46 @@ Sistema simples de gestão para empresas atuantes no seguimento de prestação d
 | MySQL | v 5.6 |
 | Bootstrap | v 4.1.0 |
 
+Sistema operacional: centos-release-7-9.2009.1.el7.centos.x86_64
+
 [Composer](https://getcomposer.org/) instalação e execução do comando update na raiz do projeto.
 
 ## Funcionalidades em desenvolvimento:
 ### Geral
-[#] Controle de usuários
+_100%_ - Controle de usuários
 
-[#] Controle de clientes
+_100%_ - Controle de clientes
 
-[#] Controle de permissões
+_100%_ - Controle de permissões
 
-[#] Controle de departamentos
+_100%_ - Controle de departamentos
 
-[#] Controle de cidades
+_100%_ - Controle de cidades
 
-[#] Controle de dashboards
+_100%_ - Controle de dashboards
 
-[#] Controle de erros registrados
+_100%_ - Controle de erros registrados
 
 ### Notificação interna
-[#] Gerenciamento de notificações interna - _Construção e configuração do aplicativo não incluso_
+_100%_ - Gerenciamento de notificações interna - _Construção e configuração do aplicativo não incluso_
 
 ### Financeiro
-[#] Gerenciamento de pagamentos
+_100%_ - Gerenciamento de pagamentos
 
 ### Almoxarifado
-[#] Controle de prateleiras (Local de estoque)
+_100%_ - Controle de prateleiras (Local de estoque)
 
-[#] Controle de estoque, produtos, entrada e saída
+_60%_ - Controle de estoque, produtos, entrada e saída
 
 ### Orçamento
-[ ] Controle de orçamentos
+_0%_ - Controle de orçamentos
 
 ### Fiscal
-[ ] Controle de emissões de NFSE (necessário configuração com prefeitura)
+_0%_ - Controle de emissões de NFSE (necessário configuração com prefeitura)
 
 ### Comercial
-[ ] Gerenciador de postagem da página comercial
+_0%_ - Gerenciador de postagem da página comercial
 
-[ ] Controle de solicitações efetuadas pela página comercial
+_0%_ - Controle de solicitações efetuadas pela página comercial
 
 
