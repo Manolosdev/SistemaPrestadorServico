@@ -1,13 +1,27 @@
-# Sistema Gestão - Prestador de serviço
+# ERP - Prestador de serviços
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
 Sistema simples de gestão para empresas atuantes no seguimento de prestação de serviços, o sistema possui as seguintes funcionalidades: 
 * Controle de usuários, departamentos, permissões, etc.
 * Controle de pagamentos.
+* Controle de notificações internas.
 * Controle de produtos, entrada e saída.
 * Controle de orçamentos.
 * Controle de emissões de NFSe.
+* Controle de postagem e solicitações da pagina comercial.
 * Responsivo para demais dispositivos.
 
-## Funcionalidades
+## Requisitos
+| Plugin | Versão |
+| ------ | ------ |
+| PHP | v 5.6 |
+| jQuery | v 3.3.1 |
+| MySQL | v 5.6 |
+| Bootstrap | v 4.1.0 |
+
+[Composer](https://getcomposer.org/) instalação e execução do comando update na raiz do projeto.
+
+## Funcionalidades em desenvolvimento:
 ### Geral
 [#] Controle de usuários
 
@@ -24,7 +38,7 @@ Sistema simples de gestão para empresas atuantes no seguimento de prestação d
 [#] Controle de erros registrados
 
 ### Notificação interna
-[#] Gerenciamento de notificações interna - Integração com aplicativo android
+[#] Gerenciamento de notificações interna - _Construção e configuração do aplicativo não incluso_
 
 ### Financeiro
 [#] Gerenciamento de pagamentos
@@ -44,3 +58,5 @@ Sistema simples de gestão para empresas atuantes no seguimento de prestação d
 [ ] Gerenciador de postagem da página comercial
 
 [ ] Controle de solicitações efetuadas pela página comercial
+
+
