@@ -1,0 +1,112 @@
+<!-- DASHBOARD SERVIÇO TECNICO -->
+<style>
+    .div-registro {
+        cursor: pointer;
+        padding: 10px;
+        padding-left: 12px;
+        padding-right: 8px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        margin-bottom: 0px;
+    }
+
+    .div-registro-active {
+        cursor: pointer;
+        padding: 10px;
+        padding-left: 12px;
+        padding-right: 8px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid #7460ee;
+        background: rgba(230,230,230,.5);
+        box-shadow: 0px 0px 0px 1px rgba(0,0,0,.05);
+    }
+
+    body[data-theme=dark] .div-registro-active {
+        cursor: pointer;
+        padding: 10px;
+        padding-left: 12px;
+        padding-right: 8px;
+        border-right: 4px solid #7460ee;
+        background: #2c3b4c;
+    }
+
+    .div-registro:hover {
+        background: rgba(230,230,230,.5);
+    }
+</style>
+<div class="row">
+
+    <!-- SERVIÇOS VINCULADOS -->
+    <div class="col-12 col-lg-8 col-xl-9">
+
+        <div class="card border-default">
+            <div class="divLoadBlock flashit" id="dashAtendimentoPadraoMeuDepartamentoBlock" style="display: block"></div>
+            <div class="card-body" style="min-height: 50px;max-height: 50px;padding-bottom: 0px; padding-top: 12px">
+                <div class="d-flex align-items-center">
+                    <div class="text-truncate">
+                        <h4 class="page-title mb-0">Agendamento - Meus serviços</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex no-block bg-light" style="cursor: default">
+                <div class="bg-light d-none d-sm-block" style="padding-left: 15px;min-width: 61px">
+                    <small>#ID</small>
+                </div>
+                <div class="text-truncate bg-light" style="padding-left: 15px;width: 155px">
+                    <small>Serviço</small>
+                </div>   
+                <div class="text-truncate d-none d-sm-block bg-light" style="padding-left: 15px">
+                    <small>Cliente</small>
+                </div>   
+                <div class="ml-auto d-flex">
+                    <div class="text-truncate d-none d-xl-block bg-light" style="margin-right: 10px;width: 155px">
+                        <small>Cidade</small>
+                    </div>
+                    <div class="text-truncate d-none d-xl-block bg-light" style="margin-right: 10px;width: 115px">
+                        <small>Agendado em</small>
+                    </div>
+                    <div class="text-truncate bg-light" style="width: 116px">
+                        <small>Situação</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body" style="height: 448px;padding: 0px" id="dashServicoTecnicoTabelaServico">
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- ESTATISTICAS DOS MEUS ATENDIMENTOS -->
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3">
+
+        <div class="card border-default">
+            <div class="divLoadBlock flashit" style="display: block" id="dashServicoTecnicoTabelaSemestralBlock"></div>
+            <div class="card-body border-bottom" style="min-height: 50px;max-height: 50px;padding-bottom: 0px; padding-top: 12px">
+                <div class="d-flex align-items-center">
+                    <div class="text-truncate">
+                        <h4 class="page-title mb-0">Último Semestre</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-light" title="Total de serviços vinculados a mim">
+                <div class="d-flex flex-row text-truncate">
+                    <div class="align-self-center" style="margin-right: 15px">
+                        <i class="mdi mdi-wrench" style="font-size: 27px"></i>
+                    </div>
+                    <div class="align-self-center text-truncate">
+                        <h4 class="mb-0">Total</h4>
+                        <span>Serviços vinculados</span>
+                    </div>
+                    <div class="ml-auto align-self-center">
+                        <h2 class="font-medium mb-0" id="dashServicoTecnicoTotalServico">0</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body ctServicoTecnico" style="height: 387px;padding-bottom: 20px;padding-top:10px;padding-left: 15px;padding-right: 15px" id="dashServicoTecnicoTabelaSemestral">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

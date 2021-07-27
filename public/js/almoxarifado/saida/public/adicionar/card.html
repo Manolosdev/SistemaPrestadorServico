@@ -1,0 +1,95 @@
+<!-- CARD SAIDA PRODUTO -->
+<div class="col-12" style="max-width: 470px;padding-right: 20px;padding-left: 20px" id="cardSaidaProdutoAdicionarCardDiv">
+
+    <div class="card mb-0" id="cardSaidaProdutoAdicionarCard">
+        <div class="divLoadBlock flashit" id="cardSaidaProdutoAdicionarCardBlock" style="display: none"></div>
+        <form id="cardSaidaProdutoAdicionarForm">
+            <input hidden id="cardSaidaProdutoAdicionarProdutoID" name="cardSaidaProdutoAdicionarProdutoID">
+            <input hidden id="cardSaidaProdutoAdicionarProdutoEmpresaID" name="cardSaidaProdutoAdicionarProdutoEmpresaID">
+            <div class="card-body bg-light" style="padding: 15px; padding-top: 8px;padding-bottom: 7px">
+                <p class="text-info mb-0" style="font-size: 15px"><i class="mdi mdi-briefcase-download"></i> Saída de produto</p>
+            </div>
+            <div class="card-body" style="padding: 0px">
+                <button type="button" id="cardSaidaProdutoAdicionarProdutoAdicionarBtn" class="btn btn-sm btn-primary text-center" title="Adicionar/alterar produto do registro de saída em estoque" style="height: 32px;font-size: 11px;width: 100%">
+                    <i class="mdi mdi-sync font-12"></i> Selecionar/alterar produto
+                </button>
+                <div id="cardSaidaProdutoAdicionarProdutoTravado" class="col-12 bg-success text-white text-center" style="height: 32px;font-size: 11px;padding-top: 8px;display: none">
+                    <i class="mdi mdi-check-all"></i> Produto selecionado com sucesso
+                </div>
+            </div>
+            <div class="card-body" style="min-height: 378px;max-height: 378px;padding-top: 10px;padding-bottom: 5px">
+                <div class="row">
+                    <div class="col-5">
+                        <small class="text-muted">Cod. Interno</small>
+                        <p class="font-12 mb-1" id="cardSaidaProdutoAdicionarProdutoLabelID">#-----</p>
+                    </div>
+                    <div class="col-6">
+                        <small class="text-muted">Cadastrado em</small>
+                        <p class="font-12 mb-1" id="cardSaidaProdutoAdicionarProdutoDataCadastro"><i class="mdi mdi-calendar-clock"></i> -----</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <small class="text-muted">Código do produto</small>
+                        <p class="font-12 text-truncate mb-1" id="cardSaidaProdutoAdicionarProdutoCodigo" style="min-height: 18px;max-height: 18px">-----</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-truncate">
+                        <small class="text-muted">Nome do produto</small>
+                        <p class="font-12 text-truncate" id="cardSaidaProdutoAdicionarProdutoNome" style="min-height: 18px;max-height: 18px;margin-bottom: 10px">-----</p>
+                    </div>
+                </div>
+                <div class="card-body bg-light" style="padding: 15px;padding-top: 5px;padding-bottom: 5px">
+                    <div class="row">
+                        <div class="col-5">
+                            <small class="text-muted">Min. estoque</small>
+                            <p class="font-12 mb-0" id="cardSaidaProdutoAdicionarProdutoMinimoEstoque"><i class="mdi mdi-information-outline"></i> -----</p>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">Estoque atual</small>
+                            <p class="font-12 mb-0" id="cardSaidaProdutoAdicionarProdutoEstoqueAtual"><i class="mdi mdi-dropbox"></i> -----</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group" style="min-height: 65px;max-height: 65px">
+                                <small>Valor de saída*</small>
+                                <div class="input-group">
+                                    <span class="input-group-text text-center font-10" style="border-right: none" id="cardSaidaProdutoAdicionarValorSaidaSpan"></span>
+                                    <input type="number" class="form-control font-12" placeholder="Ex: 150" maxlength="10" max="100000" required id="cardSaidaProdutoAdicionarValorSaida" name="cardSaidaProdutoAdicionarValorSaida">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group" style="min-height: 97px;max-height: 97px">
+                                <small>Comentário de movimento*</small>
+                                <textarea class="form-control font-11" placeholder="Informe um comentário" required rows="2" maxlength="250" style="resize: none;height: 62px" id="cardSaidaProdutoAdicionarComentario" name="cardSaidaProdutoAdicionarComentario"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-light" style="min-height: 61px;max-height: 61px;padding-top: 15px;padding-bottom: 15px">
+                <div class="row">
+                    <div class="col" style="max-width: 80px;padding-right: 0">
+                        <button id="cardSaidaProdutoAdicionarBtnBack" type="button" class="btn btn-dark text-center font-12" style="width: 100%;min-height: 32px;max-height: 32px"><i class="mdi mdi-arrow-left"></i></button>
+                    </div>
+                    <div class="col" style="padding-left: 0">
+                        <button id="cardSaidaProdutoAdicionarBtnSubmit" type="button" class="btn btn-success text-right font-11" style="width: 100%;min-height: 32px;max-height: 32px">Registrar Saída <i class="mdi mdi-chevron-double-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- CARD ANIMATION -->
+<div class="col-12 text-center" id="cardSaidaProdutoAdicionarDivAnimation" style="display: none">
+    <div class="col-12" id="cardSaidaProdutoAdicionarDivAnimationImage" style="font-size: 180px">
+        <i class="mdi mdi-checkbox-marked-circle text-info"></i>
+    </div>
+</div>

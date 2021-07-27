@@ -1,0 +1,154 @@
+<!-- CARD PRATELEIRA CONSULTAR -->
+<div class="col-12" style="max-width: 470px;padding-right: 20px;padding-left: 20px" id="cardPrateleiraConsultarCardDiv">
+
+    <!-- CARD PRINCIPAL ------------------------------------------------------->
+    <div class="card mb-0" id="cardPrateleiraConsultarCard">
+        <div class="divLoadBlock" id="cardPrateleiraConsultarCardBlock"></div>
+        <input hidden name="cardPrateleiraConsultarID" id="cardPrateleiraConsultarID">
+        <input hidden name="cardPrateleiraConsultarEmpresaID" id="cardPrateleiraConsultarEmpresaID">
+        <!-- HEADER -->
+        <div class="card-body bg-light" style="padding: 15px; padding-top: 8px;padding-bottom: 7px;margin-bottom: 1px">
+            <p class="text-info mb-0" style="font-size: 15px" id="cardPrateleiraConsultarTitulo"></p>
+        </div>
+        <!-- TABS -->
+        <ul class="nav nav-pills custom-pills bg-light nav-justified" role="tablist">
+            <li class="nav-item" style="height: 36px">
+                <a class="nav-link text-center font-12 active" id="cardPrateleiraConsultarInformacaoTab" data-toggle="pill" href="#cardPrateleiraConsultarInformacaoPanel" role="tab" aria-controls="cardPrateleiraConsultarInformacaoTab" aria-selected="false" style="padding-left: 0px; padding-right: 0px">
+                    <p class="mb-0"><i class="mdi mdi-information-outline d-block d-md-none"></i><span class="d-none d-md-block"><i class="mdi mdi-information-outline"></i> Informações</span></p>
+                </a>
+            </li>
+            <li class="nav-item" style="height: 36px">
+                <a class="nav-link text-center font-11" id="cardPrateleiraConsultarEnderecoTab" data-toggle="pill" href="#cardPrateleiraConsultarEnderecoPanel" role="tab" aria-controls="cardPrateleiraConsultarEnderecoTab" aria-selected="false" style="padding-left: 0px; padding-right: 0px">
+                    <p class="mb-0"><i class="mdi mdi-google-maps d-block d-md-none"></i><span class="d-none d-md-block"><i class="mdi mdi-google-maps"></i> Localização prateleira</span></p>
+                </a>
+            </li>
+            <li class="nav-item" style="height: 36px">
+                <a class="nav-link text-center font-11" id="cardPrateleiraConsultarListaProdutoTab" data-toggle="pill" href="#cardPrateleiraConsultarListaProdutoPanel" role="tab" aria-controls="cardPrateleiraConsultarListaProdutoTab" aria-selected="false" style="position: relative;padding-left: 0px; padding-right: 0px">
+                    <span class="badge badge-pill badge-primary" id="cardPrateleiraConsultarListaProdutoTabSize" style="position: absolute; right: 5px; top: 4px; min-width: 20px; opacity: 1;">0</span>
+                    <p class="mb-0"><i class="mdi mdi-buffer d-block d-md-none"></i><span class="d-none d-md-block"><i class="mdi mdi-buffer"></i> Lista de Produtos</span></p>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!-- TAB INFORMAÇÕES -->
+            <div class="tab-pane fade active show" id="cardPrateleiraConsultarInformacaoPanel" role="tabpanel" aria-labelledby="cardPrateleiraConsultarInformacaoTab">
+                <div class="card-body" style="padding-bottom: 2px;padding-top: 15px;height: 373px">
+                    <div class="row">
+                        <div class="col-6">
+                            <small class="text-muted">Cód. interno</small>
+                            <p class="color-default font-12 text-truncate" id="cardPrateleiraConsultarInformacaoID">-----</p>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">Cadastrado em</small>
+                            <p class="color-default font-12 text-truncate" id="cardPrateleiraConsultarInformacaoDataCadastro">-----</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <small class="text-muted">Nome da prateleira</small>
+                            <p class="color-default font-12 text-truncate" id="cardPrateleiraConsultarInformacaoNome">-----</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <small class="text-muted">Empresa</small>
+                            <p class="color-default font-12 text-truncate" id="cardPrateleiraConsultarInformacaoEmpresa">-----</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <small class="text-muted">Descrição da prateleira</small>
+                            <textarea class="form-control color-default font-12" rows="5" style="resize: none;height: 93px" readonly id="cardPrateleiraConsultarInformacaoDescricao"></textarea>
+                        </div>
+                    </div>
+                    <div class="card-body bg-light" style="padding: 15px;margin-top: 14px">
+                        <p class="font-11 mb-0 text-justify text-truncate">(*) Informações públicas da prateleira.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- TAB ENDEREÇO -->
+            <div class="tab-pane fade" id="cardPrateleiraConsultarEnderecoPanel" role="tabpanel" aria-labelledby="cardPrateleiraConsultarEnderecoTab">
+                <div class="card-body" style="padding-bottom: 2px;padding-top: 15px;height: 373px">
+                    <div class="row">
+                        <div class="col-12">
+                            <small class="text-muted">Cep</small>
+                            <p class="color-default font-12 text-truncate" id="cardPrateleiraConsultarEnderecoCEP">-----</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <small class="text-muted">Rua</small>
+                            <p class="color-default font-12 text-truncate" id="cardPrateleiraConsultarEnderecoRua">-----</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <small class="text-muted">Referência</small>
+                            <p class="color-default font-12 text-truncate" id="cardPrateleiraConsultarEnderecoReferencia">----</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <small class="text-muted">Bairro</small>
+                            <p class="color-default font-12 text-truncate" id="cardPrateleiraConsultarEnderecoBairro">-----</p>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">Cidade</small>
+                            <p class="color-default font-12 text-truncate" id="cardPrateleiraConsultarEnderecoCidade">-----</p>
+                        </div>
+                    </div>
+                    <div class="card-body bg-light" style="padding: 15px;margin-top: 72px">
+                        <p class="font-11 mb-0 text-justify text-truncate">(*) Endereço onde se encontra a prateleira.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- LISTA PRODUTOS -->
+            <div class="tab-pane fade" id="cardPrateleiraConsultarListaProdutoPanel" role="tabpanel" aria-labelledby="cardPrateleiraConsultarListaProdutoTab">
+                <div class="d-flex no-block bg-light" style="margin-top: 1px;cursor: default">
+                    <div class="text-truncate bg-light" style="padding-left: 15px">
+                        <small>Nome do produto</small>
+                    </div>
+                    <div class="ml-auto d-flex">
+                        <div class="text-truncate bg-light" style="width: 85px">
+                            <small>Saldo Atual</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" id="cardPrateleiraConsultarListaProduto" style="padding: 0px;height: 297px">
+                </div>
+                <div class="card-body bg-light" style="margin-bottom: 1px;padding-bottom: 12px;padding-top: 12px;min-height: 53px;max-height: 53px">
+                    <div class="row">
+                        <div class="col d-none d-sm-block text-truncate" style="padding-top: 4px">
+                            <small id="cardPrateleiraConsultarListaProdutoSize"><b>0</b> registro(s) encontrado(s)</small>
+                        </div>
+                        <div class="col text-sm-right text-center">
+                            <div class="btn-group" role="group" aria-label="Second group">
+                                <button id="cardPrateleiraConsultarListaProdutoBtnPrimeiro" data-id="1" class="btn btn-secondary btn-sm" disabled title="Exibir inicio da lista de registros"><i class="mdi mdi-chevron-double-left font-13"></i></button>
+                                <button id="cardPrateleiraConsultarListaProdutoBtnAnterior" data-id="1" class="btn btn-secondary btn-sm" disabled title="Exibir lista de registros anteriores"><i class="mdi mdi-chevron-left font-13"></i></button>
+                                <button id="cardPrateleiraConsultarListaProdutoBtnAtual" data-id="1" class="btn btn-secondary btn-sm" disabled style="width: 40px">...</button>
+                                <button id="cardPrateleiraConsultarListaProdutoBtnProximo" data-id="0" class="btn btn-secondary btn-sm" disabled title="Exibir proxima lista de registros"><i class="mdi mdi-chevron-right font-13"></i></button>
+                                <button id="cardPrateleiraConsultarListaProdutoBtnUltimo" data-id="0" class="btn btn-secondary btn-sm" disabled title="Exibir final da lista de registros"><i class="mdi mdi-chevron-double-right font-13"></i></button>
+                                <button id="cardPrateleiraConsultarListaProdutoBtnRelatorio" title="Relatório de produtos atribuídos a essa prateleira" class="btn btn-primary btn-sm" style="width: 37px;height: 29px;margin-left: 4px"><i class="mdi mdi-fax"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FLOOTER -->
+        <div class="card-footer bg-light" style="padding-top: 15px;padding-bottom: 15px">
+            <div class="row">
+                <div class="col" style="max-width: 80px;padding-right: 0">
+                    <button type="button" class="btn btn-dark font-11" style="width: 70px" id="cardPrateleiraConsultarBtnBack"><i class="mdi mdi-arrow-left"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CARD ANIMATION -->
+<div class="col-12 text-center" id="cardPrateleiraConsultarDivAnimation" style="display: none">
+    <div class="col-12" id="cardPrateleiraConsultarDivAnimationImage" style="font-size: 150px">
+        <i class="mdi mdi-archive text-info"></i>
+    </div>
+</div>

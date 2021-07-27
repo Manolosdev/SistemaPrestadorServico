@@ -1,0 +1,165 @@
+<!-- CARD ADICIONAR PRODUTO -->
+<div class="col-12" style="max-width: 470px;padding-right: 20px;padding-left: 20px" id="cardProdutoAdicionarCardDiv">
+
+    <div class="card mb-0" id="cardProdutoAdicionarCard">
+        <div class="divLoadBlock flashit" id="cardProdutoAdicionarCardBlock" style="display: none"></div>
+        <form id="cardProdutoAdicionarForm">
+            <input hidden id="cardProdutoAdicionarID">
+            <div class="card-body bg-light" style="padding: 15px; padding-top: 8px;padding-bottom: 7px;margin-bottom: 1px">
+                <p class="text-info mb-0" style="font-size: 15px"><i class="mdi mdi-package-variant"></i> Novo Produto</p>
+            </div>
+            <!-- TABS -->
+            <ul class="nav nav-pills custom-pills bg-light nav-justified" role="tablist" style="margin-bottom: 1px">
+                <li class="nav-item" style="height: 36px">
+                    <a class="nav-link text-center font-12 active" id="cardProdutoAdicionarTabGeral" data-toggle="pill" href="#cardProdutoAdicionarPanelGeral" role="tab" aria-controls="cardProdutoAdicionarTabGeral" aria-selected="false" style="padding-left: 0px; padding-right: 0px">
+                        <p class="mb-0">
+                            <span class="d-block d-md-none"><i class="mdi mdi-information-outline"></i> Inf. públicas</span>
+                            <span class="d-none d-md-block"><i class="mdi mdi-information-outline"></i> Informações públicas</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item" style="height: 36px">
+                    <a class="nav-link text-center font-12" id="cardProdutoAdicionarTabEstoque" data-toggle="pill" href="#cardProdutoAdicionarPanelEstoque" role="tab" aria-controls="cardProdutoAdicionarTabEstoque" aria-selected="false" style="padding-left: 0px; padding-right: 0px">
+                        <p class="mb-0">
+                            <span class="d-block d-md-none"><i class="mdi mdi-package-variant"></i> Inf. estoque</span>
+                            <span class="d-none d-md-block"><i class="mdi mdi-package-variant"></i> Informações do estoque</span>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <!-- TAB INFORMAÇÕES GERAIS -->
+                <div class="tab-pane fade active show" id="cardProdutoAdicionarPanelGeral" role="tabpanel" aria-labelledby="cardProdutoAdicionarTabGeral">
+                    <div class="card-body" style="min-height: 371px;padding-top: 15px;padding-bottom: 5px">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 71px;max-height: 71px">
+                                    <label class="form-group font-12">Código de identificação</label>
+                                    <input type="text" class="form-control font-12" placeholder="Código de identificação do produto" id="cardProdutoAdicionarCodigo" name="cardProdutoAdicionarCodigo" maxlength="40">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 71px;max-height: 71px">
+                                    <label class="form-group font-12">Nome do produto*</label>
+                                    <input type="text" class="form-control font-12" placeholder="Nome do produto" id="cardProdutoAdicionarNome" name="cardProdutoAdicionarNome" maxlength="50" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 71px;max-height: 71px">
+                                    <label class="form-group font-12">Empresa do produto*</label>
+                                    <select class="form-control font-12" style="cursor: pointer;min-height: 32px;max-height: 32px" name="cardProdutoAdicionarEmpresa" id="cardProdutoAdicionarEmpresa" required>
+                                        <option value="-1" selected disabled>- Selecione a empresa -</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 133px;max-height: 133px">
+                                    <label class="form-group font-12">Descrição do produto*</label>
+                                    <textarea class="form-control font-12" placeholder="Informe uma descrição" required rows="3" maxlength="250" style="resize: none;height: 97px" id="cardProdutoAdicionarDescricao" name="cardProdutoAdicionarDescricao"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- TAB INFORMAÇÕES ESTOQUE -->
+                <div class="tab-pane fade" id="cardProdutoAdicionarPanelEstoque" role="tabpanel" aria-labelledby="cardProdutoAdicionarTabEstoque">
+                    <div class="card-body" style="min-height: 371px;padding-top: 12px;padding-bottom: 5px">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 71px;max-height: 71px">
+                                    <label class="form-group font-12">Prateleira do produto*</label>
+                                    <div class="input-group">
+                                        <select class="form-control font-12" style="cursor: pointer;min-height: 32px;max-height: 32px" name="cardProdutoAdicionarPrateleira" id="cardProdutoAdicionarPrateleira" required>
+                                            <option value="-1" selected disabled>- Selecione primeiro a empresa -</option>
+                                        </select>
+                                        <button type="button" class="btn btn-primary btn-sm" id="cardProdutoAdicionarPrateleiraBtn" title="Informações da prateleira selecionada" style="height: 32px;width: 40px"><i class="mdi mdi-help-circle-outline"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6" style="padding-right: 5px">
+                                <div class="form-group" style="min-height: 71px;max-height: 71px">
+                                    <label class="form-group font-12">Valor de compra*</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text font-10" style="border-right: none">R$</span>
+                                        <input type="text" class="form-control font-12" placeholder="0,00" id="cardProdutoAdicionarValorCompra" name="cardProdutoAdicionarValorCompra" maxlength="10" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6" style="padding-left: 5px">
+                                <div class="form-group" style="min-height: 71px;max-height: 71px">
+                                    <label class="form-group font-12">Valor de venda*</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text font-10" style="border-right: none">R$</span>
+                                        <input type="text" class="form-control font-12" placeholder="0,00" id="cardProdutoAdicionarValorVenda" name="cardProdutoAdicionarValorVenda" maxlength="10" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6" style="padding-right: 5px">
+                                <div class="form-group" style="min-height: 71px;max-height: 71px">
+                                    <label class="form-group font-12">Un. de medida*</label>
+                                    <select class="form-control font-12" style="cursor: pointer;min-height: 32px;max-height: 32px" name="cardProdutoAdicionarUnidadeMedida" id="cardProdutoAdicionarUnidadeMedida" required>
+                                        <option value="-1" selected disabled>- Medida do produto -</option>
+                                        <option value="CJ">CJ - Conjunto</option>
+                                        <option value="CX">CX - Caixa</option>
+                                        <option value="GL">GL - Galão</option>
+                                        <option value="JG">JG - Jogo</option>
+                                        <option value="KG">KG - KG</option>
+                                        <option value="LATA">LATA - Lata</option>
+                                        <option value="M">M - Metro</option>
+                                        <option value="M3">M3 - Metro Cúbico</option>
+                                        <option value="ML">ML - Mililitro</option>
+                                        <option value="MT">MT - Material</option>
+                                        <option value="MWh">MWh - MegaWatt</option>
+                                        <option value="PC">PC - Peça</option>
+                                        <option value="PCT">PCT - Pacote</option>
+                                        <option value="PR">PR - Par</option>
+                                        <option value="RL">RL - Rolo</option>
+                                        <option value="T">T - Tonelada</option>
+                                        <option value="UN">UN - Unidade</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6" style="padding-left: 5px">
+                                <div class="form-group" style="min-height: 71px;max-height: 71px">
+                                    <label class="form-group font-12">Saldo mínimo*</label>
+                                    <input type="number" class="form-control font-12" placeholder="Ex: 50" id="cardProdutoAdicionarSaldoMinimo" name="cardProdutoAdicionarSaldoMinimo" maxlength="10" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body bg-light" style="padding: 15px;margin-top: 80px">
+                            <p class="font-11 mb-0 text-justify text-truncate">(*) Informações referente ao estoque do produto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-light" style="padding-top: 15px;padding-bottom: 15px">
+                <div class="row">
+                    <div class="col" style="max-width: 80px;padding-right: 0">
+                        <button id="cardProdutoAdicionarBtnBack" type="button" class="btn btn-dark text-center font-12" style="width: 100%"><i class="mdi mdi-arrow-left"></i></button>
+                    </div>
+                    <div class="col" style="padding-left: 0">
+                        <button id="cardProdutoAdicionarBtnSubmit" type="button" class="btn btn-success text-right font-12" style="width: 100%">Cadastrar Produto <i class="mdi mdi-chevron-double-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- CARD ANIMATION -->
+<div class="col-12 text-center" id="cardProdutoAdicionarDivAnimation" style="display: none">
+    <div class="col-12" id="cardProdutoAdicionarDivAnimationImage" style="font-size: 180px">
+        <i class="mdi mdi-checkbox-marked-circle text-info"></i>
+    </div>
+</div>

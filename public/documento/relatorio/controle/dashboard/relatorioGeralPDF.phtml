@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title><?php echo $tituloRelatorio ?></title>
+        <!-- STYLE PAGE ------------------------------------------------------->
+        <style type="text/css">
+            body {
+                margin: 0px;
+                color: #343a40;
+                font-family: Arial;
+            }
+            .tabelaDefault {
+                width: 900px;
+                margin-bottom: 5px;
+            }
+            .tabelaDefaultHeader {
+                text-align: left;
+                vertical-align: middle;
+                background-color: #cccccc !important;
+                font-weight: bold;
+                font-size: 12px;
+            }
+            p {
+                font-size: 11px;
+                margin: 0px;
+            }
+            .pCidade {
+                font-size: 12px;
+                font-weight: bold;
+            }
+            .pActive {
+                font-weight: bold;
+            }
+            .pDisabled {
+                color: #9e9e9eed;   
+            }
+            .pResumo {
+                font-size: 13px;
+            }
+            .pResumoTotal {
+                font-weight: bold;
+                font-size: 15px;
+            }
+            .textRight {
+                text-align: right;
+            }
+            .textCenter {
+                text-align: center;
+            }
+        </style>
+        <?php
+        //VETOR DE MESES
+        $nomeMes = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+        $totalRegistro = 0;
+        ?>
+    </head>
+    <body>
+        <!-- HEADER DO RELATÓRIO ---------------------------------------------->
+        <table class="tabelaDefault">
+            <tr>
+                <td style="width: 95px">
+                    <img src="<?php echo $APP_HOST ?>/public/template/assets/img/favicon.png" style="margin-top: 5px;" height="80px">
+                </td>
+                <td>
+                    <h3 style="margin-bottom: 1px;margin-top: 10px"><?php echo strtoupper($tituloRelatorio) ?></h3>
+                    <p style="margin-bottom: 0px;margin-top: 0px">Documento Administrativo</p>
+                    <p style="margin-bottom: 3px;margin-top: 0px">Gerado por <b><?php echo $usuarioNome ?></b> em <?php echo date('d') ?> de <?php echo $nomeMes[intval(date('m')) - 1] ?> de <?php echo date('Y') ?> às <?php echo date('H:i') ?></p>
+                </td>
+            </tr>
+        </table>
+        <!-- LISTA DE REGISTROS ----------------------------------------------->
+        <table class="tabelaDefault">
+            <tr>
+                <td width="20%" class="tabelaDefaultHeader">&nbsp;Departamento</td>
+                <td class="tabelaDefaultHeader">&nbsp;Nome</td>
+                <td width="9%" class="tabelaDefaultHeader textCenter">N° usuários</td>
+            </tr>
+            <?php if (count($listaRegistro) > 0) { ?>    
+                <?php foreach ($listaRegistro as $value) { ?>
+                    <?php $fonteRegistro = ($value['numeroUsuario'] > 0 ? "pActive" : "") ?>
+                    <tr>
+                        <td width="20%">
+                            <p class="<?php echo $fonteRegistro ?>">&nbsp;<?php echo $value['departamentoNome'] ?></p>
+                        </td>
+                        <td>
+                            <p class="<?php echo $fonteRegistro ?>">&nbsp;<?php echo $value['dashboardNome'] ?></p>
+                        </td>
+                        <td width="9%" class="textRight">
+                            <p class="<?php echo $fonteRegistro ?>"><?php echo $value['numeroUsuario'] ?>&nbsp;</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            <p></p>
+                        </td>
+                        <td>
+                            <p style="font-size: 9px">&nbsp;&nbsp;&nbsp;<?php echo $value['dashboardDescricao'] ?></p>
+                        </td>
+                        <td width="9%" class="textRight">
+                            <p></p>
+                        </td>
+                    </tr>
+                <?php } ?>
+                <tr>
+                    <td colspan="3" class="tabelaDefaultHeader textCenter">Resumo Geral</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="textRight">
+                        <p class="pResumo pActive">Total Dashboards:</p>
+                    </td>
+                    <td width="9%" class="textRight">
+                        <p class="pResumo pActive"><?php echo $totalRegistro ?></p>
+                    </td>
+                </tr>
+            <?php } else { ?>
+                <tr>
+                    <td colspan="3" class="textCenter">- Nenhum registro encontrado -</td>
+                </tr>
+            <?php } ?>
+        </table>
+    </body>
+</html>

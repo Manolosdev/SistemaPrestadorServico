@@ -1,0 +1,192 @@
+<!-- DASHBOARD FINANCEIRO BOLETO -->
+<style>
+    .div-registro {
+        cursor: pointer;
+        padding: 10px;
+        padding-left: 12px;
+        padding-right: 8px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        margin-bottom: 0px;
+    }
+
+    .div-registro-active {
+        cursor: pointer;
+        padding: 10px;
+        padding-left: 12px;
+        padding-right: 8px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid #7460ee;
+        background: rgba(230,230,230,.5);
+        box-shadow: 0px 0px 0px 1px rgba(0,0,0,.05);
+    }
+
+    body[data-theme=dark] .div-registro-active {
+        cursor: pointer;
+        padding: 10px;
+        padding-left: 12px;
+        padding-right: 8px;
+        border-right: 4px solid #7460ee;
+        background: #2c3b4c;
+    }
+
+    .div-registro:hover {
+        background: rgba(230,230,230,.5);
+    }
+
+    .situacaoRemessaPendente {
+        border-left: 4px solid #fb8c00;
+    }
+
+    .situacaoRegistroCancelado {
+        border-left: 4px solid #6c757d;
+    }
+
+    .situacaoPagamentoPendente {
+        border-left: 4px solid #7460ee;
+    }
+
+    .situacaoPagamentoConcluido {
+        border-left: 4px solid #15d458;
+    }
+</style>
+<div class="row">
+    
+    <!-- ESTATISTICAS DE REMESSAS -->
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 order-md-1 order-lg-1 order-xl-1">
+
+        <div class="card border-default">
+            <div class="divLoadBlock flashit" style="display: block" id="dashFinanceiroBoletoCardRemessaBlock"></div>
+            <div class="card-body border-bottom" style="min-height: 50px;max-height: 50px;padding-bottom: 0px; padding-top: 12px">
+                <div class="d-flex align-items-center">
+                    <div class="text-truncate">
+                        <h4 class="page-title mb-0">Remessas emitidas</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-light" title="Total de remessas emitidas pelo sistema">
+                <div class="d-flex flex-row text-truncate">
+                    <div class="align-self-center" style="margin-right: 15px">
+                        <i class="mdi mdi-folder-upload" style="font-size: 27px"></i>
+                    </div>
+                    <div class="align-self-center text-truncate">
+                        <h4 class="mb-0">Total</h4>
+                        <span>Remessas emitidas</span>
+                    </div>
+                    <div class="ml-auto align-self-center">
+                        <h2 class="font-medium mb-0" id="dashFinanceiroBoletoCardRemessaTotal">0</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body ctFinanceiroRemessaEmitida" style="height: 394px;padding-bottom: 20px;padding-top:10px;padding-left: 15px;padding-right: 15px" id="dashFinanceiroBoletoCardRemessaTabela">
+            </div>
+        </div>
+        <div class="card bg-cyan text-white" style="cursor: default" title="Número de remessas emitidas durante o mês atual">
+            <div class="card-body">
+                <div class="d-flex flex-row text-truncate">
+                    <div style="margin-right: 10px">
+                        <i class="mdi mdi-folder-upload" style="font-size: 28px"></i>
+                    </div>
+                    <div class="align-self-center ">
+                        <h5 style="margin-bottom: 0px">Este Mês</h5>
+                        <span class="font-12">Remessas emitidas</span>
+                    </div>
+                    <div class="ml-auto align-self-center text-right">
+                        <h3 class="font-medium mb-0" style="font-size: 22px" id="dashFinanceiroBoletoCardRemessaTotalMes">0</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TABELA DE REGISTROS -->
+    <div class="col-12 col-xl-6 order-md-3 order-lg-3 order-xl-2">
+
+        <div class="card border-default">
+            <div class="divLoadBlock flashit" id="dashFinanceiroBoletoCardTabelaBoletoBlock" style="display: block"></div>
+            <div class="card-body" style="min-height: 50px;max-height: 50px;padding-bottom: 0px; padding-top: 12px">
+                <div class="d-flex align-items-center">
+                    <div class="text-truncate">
+                        <h4 class="page-title mb-0">Aguardando remessa</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex no-block bg-light" style="cursor: default">
+                <div class="bg-light" style="padding-left: 15px;min-width: 57px">
+                    <small>#ID</small>
+                </div>
+                <div class="text-truncate bg-light" style="padding-left: 15px;width: 146px">
+                    <small>Serviço</small>
+                </div>
+                <div class="text-truncate bg-light" style="padding-left: 15px;width: 80px">
+                    <small>Valor</small>
+                </div>
+                <div class="text-truncate d-none d-md-block bg-light" style="padding-left: 15px">
+                    <small>Cliente</small>
+                </div>   
+                <div class="ml-auto d-flex">
+                    <div class="text-truncate bg-light d-none d-sm-block" style="width: 142px">
+                        <small>Situação</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body" style="height: 528px;padding: 0px" id="dashFinanceiroBoletoCardTabelaBoleto">
+            </div>
+            <div class="card-body bg-light text-center" title="Ir para controle de boletos cadastrados no sistema" style="padding: 5px;max-height: 30px;min-height: 30px;cursor: pointer">
+                <a class="color-default" id="dashAtendimentoPadraoRedirecionarBtn"><i class="mdi font-13 mdi-chevron-double-down"></i> <small>Mostrar todos <i class="mdi mdi-chevron-double-down font-13"></i></small></a>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- ESTATISTICAS DE REGISTROS -->
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 order-md-2 order-lg-2 order-xl-3">
+
+        <div class="card border-default">
+            <div class="divLoadBlock flashit" style="display: block" id="dashFinanceiroBoletoCardBoletoBlock"></div>
+            <div class="card-body border-bottom" style="min-height: 50px;max-height: 50px;padding-bottom: 0px; padding-top: 12px">
+                <div class="d-flex align-items-center">
+                    <div class="text-truncate">
+                        <h4 class="page-title mb-0">Boletos emitidos</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-light" title="Total de serviços vinculados a mim">
+                <div class="d-flex flex-row text-truncate">
+                    <div class="align-self-center" style="margin-right: 15px">
+                        <i class="mdi mdi-barcode-scan" style="font-size: 27px"></i>
+                    </div>
+                    <div class="align-self-center text-truncate">
+                        <h4 class="mb-0">Total</h4>
+                        <span>Boletos emitidos</span>
+                    </div>
+                    <div class="ml-auto align-self-center">
+                        <h2 class="font-medium mb-0" id="dashFinanceiroBoletoCardBoletoTotal">0</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body ctFinanceiroBoletoLiquidado" style="height: 394px;padding-bottom: 20px;padding-top:10px;padding-left: 15px;padding-right: 15px" id="dashFinanceiroBoletoCardBoletoTabela">
+            </div>
+        </div>
+        <div class="card bg-success text-white" style="cursor: default" title="Número de boletos liquidados/pagos durante o mês atual">
+            <div class="card-body">
+                <div class="d-flex flex-row text-truncate">
+                    <div style="margin-right: 10px">
+                        <i class="mdi mdi-coin" style="font-size: 28px"></i>
+                    </div>
+                    <div class="align-self-center ">
+                        <h5 style="margin-bottom: 0px">Este Mês</h5>
+                        <span class="font-12">Boletos liquidados</span>
+                    </div>
+                    <div class="ml-auto align-self-center text-right">
+                        <h3 class="font-medium mb-0" style="font-size: 22px" id="dashFinanceiroBoletoCardBoletoTotalMes">0</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,141 @@
+<!-- CARD ADICIONAR PRATELEIRA -->
+<div class="col-12" style="max-width: 470px;padding-right: 20px;padding-left: 20px" id="cardPrateleiraAdicionarCardDiv">
+
+    <div class="card mb-0" id="cardPrateleiraAdicionarCard">
+        <div class="divLoadBlock flashit" id="cardPrateleiraAdicionarCardBlock" style="display: none"></div>
+        <form id="cardPrateleiraAdicionarForm">
+            <input hidden id="cardPrateleiraAdicionarID">
+            <div class="card-body bg-light" style="padding: 15px; padding-top: 8px;padding-bottom: 7px;margin-bottom: 1px">
+                <p class="text-info mb-0" style="font-size: 15px"><i class="mdi mdi-archive"></i> Nova Prateleira</p>
+            </div>
+            <!-- TABS -->
+            <ul class="nav nav-pills custom-pills bg-light nav-justified" role="tablist" style="margin-bottom: 1px">
+                <li class="nav-item" style="height: 36px">
+                    <a class="nav-link text-center font-12 active" id="cardPrateleiraAdicionarTabGeral" data-toggle="pill" href="#cardPrateleiraAdicionarPanelGeral" role="tab" aria-controls="cardPrateleiraAdicionarTabGeral" aria-selected="false" style="padding-left: 0px; padding-right: 0px">
+                        <p class="mb-0"><i class="mdi mdi-information-outline d-block d-md-none"></i><span class="d-none d-md-block"><i class="mdi mdi-information-outline"></i> Informações públicas</span></p>
+                    </a>
+                </li>
+                <li class="nav-item" style="height: 36px">
+                    <a class="nav-link text-center font-11" id="cardPrateleiraAdicionarTabEndereco" data-toggle="pill" href="#cardPrateleiraAdicionarPanelEndereco" role="tab" aria-controls="cardPrateleiraAdicionarTabEndereco" aria-selected="false" style="padding-left: 0px; padding-right: 0px">
+                        <p class="mb-0"><i class="mdi mdi-google-maps d-block d-md-none"></i><span class="d-none d-md-block"><i class="mdi mdi-google-maps"></i> Endereço da prateleira</span></p>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <!-- TAB INFORMAÇÕES GERAIS -->
+                <div class="tab-pane fade active show" id="cardPrateleiraAdicionarPanelGeral" role="tabpanel" aria-labelledby="cardPrateleiraAdicionarTabGeral">
+                    <div class="card-body" style="min-height: 371px;padding-top: 15px;padding-bottom: 5px">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 71px;max-height: 71px">
+                                    <label class="form-group font-12">Nome da prateleira*</label>
+                                    <input type="text" class="form-control font-12" placeholder="Nome da prateleira" id="cardPrateleiraAdicionarNome" name="cardPrateleiraAdicionarNome" maxlength="30" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 71px;max-height: 71px">
+                                    <label class="form-group font-12">Empresa da prateleira*</label>
+                                    <select class="form-control font-12" style="cursor: pointer;min-height: 32px;max-height: 32px" name="cardPrateleiraAdicionarEmpresa" id="cardPrateleiraAdicionarEmpresa" required>
+                                        <option value="-1">- Erro Interno -</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 138px;max-height: 138px">
+                                    <label class="form-group font-12">Descrição da prateleira*</label>
+                                    <textarea class="form-control font-12" placeholder="Informe uma descrição" required rows="3" maxlength="250" style="resize: none;height: 100px" id="cardPrateleiraAdicionarDescricao" name="cardPrateleiraAdicionarDescricao"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body bg-light" style="padding: 15px;margin-top: 10px">
+                            <p class="font-11 mb-0 text-justify text-truncate">(*) Informações públicas da prateleira.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- TAB ENDEREÇO -->
+                <div class="tab-pane fade" id="cardPrateleiraAdicionarPanelEndereco" role="tabpanel" aria-labelledby="cardPrateleiraAdicionarTabEndereco">
+                    <div class="card-body" style="min-height: 371px;padding-top: 12px;padding-bottom: 5px">
+                        <div class="row">
+                            <div class="col-8" style="padding-right: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group mb-0 font-10">Cep*</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control font-10" required maxlength="9" name="cardPrateleiraAdicionarEnderecoCep" id="cardPrateleiraAdicionarEnderecoCep" placeholder="99999-999" data-mask="00000-000" style="border-radius: 0px" autocomplete="off">
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-primary font-10" id="cardPrateleiraAdicionarEnderecoBtn" style="width: 40px;height: 29px;padding-top: 8px;border-top-right-radius: 1px;border-bottom-right-radius: 1px">
+                                                <i class="ti ti-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8" style="padding-right: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group mb-0 font-10">Rua*</label>
+                                    <input type="text" class="form-control font-10" maxlength="50" required name="cardPrateleiraAdicionarEnderecoRua" id="cardPrateleiraAdicionarEnderecoRua" placeholder="Rua Paes Leme" autocomplete="off" style="border-radius: 0px">
+                                </div>
+                            </div>
+                            <div class="col-4" style="padding-left: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group mb-0 font-10">Número</label>
+                                    <input type="tel" class="form-control font-10" maxlength="5" name="cardPrateleiraAdicionarEnderecoNumero" id="cardPrateleiraAdicionarEnderecoNumero" placeholder="1567" autocomplete="off" style="border-radius: 0px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group mb-0 font-10">Referência</label>
+                                    <input type="text" class="form-control font-10" maxlength="50" name="cardPrateleiraAdicionarEnderecoReferencia" id="cardPrateleiraAdicionarEnderecoReferencia" placeholder="Próximo ao Vila Verde" autocomplete="off" style="border-radius: 0px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8" style="padding-right: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group mb-0 font-10">Bairro</label>
+                                    <input type="text" class="form-control font-10" maxlength="50" required name="cardPrateleiraAdicionarEnderecoBairro" id="cardPrateleiraAdicionarEnderecoBairro" placeholder="Centro" autocomplete="off" style="border-radius: 0px">
+                                </div>
+                            </div>
+                            <div class="col-4" style="padding-left: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group mb-0 font-10">Cidade</label>
+                                    <input type="text" class="form-control font-10" maxlength="50" required readonly name="cardPrateleiraAdicionarEnderecoCidade" id="cardPrateleiraAdicionarEnderecoCidade" placeholder="Andradina" autocomplete="off" style="border-radius: 0px">
+                                </div>
+                            </div>
+                        </div>
+                        <input hidden id="cardPrateleiraAdicionarEnderecoUF" name="cardPrateleiraAdicionarEnderecoUF">
+                        <input hidden id="cardPrateleiraAdicionarEnderecoIBGE" name="cardPrateleiraAdicionarEnderecoIBGE">
+                        <div class="card-body bg-light" style="padding: 15px;margin-top: 48px">
+                            <p class="font-11 mb-0 text-justify text-truncate">(*) Informações onde se encontra a prateleira.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-light" style="padding-top: 15px;padding-bottom: 15px">
+                <div class="row">
+                    <div class="col" style="max-width: 80px;padding-right: 0">
+                        <button id="cardPrateleiraAdicionarBtnBack" type="button" class="btn btn-dark text-center font-12" style="width: 100%"><i class="mdi mdi-arrow-left"></i></button>
+                    </div>
+                    <div class="col" style="padding-left: 0">
+                        <button id="cardPrateleiraAdicionarBtnSubmit" type="button" class="btn btn-success text-right font-12" style="width: 100%">Cadastrar Prateleira <i class="mdi mdi-chevron-double-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- CARD ANIMATION -->
+<div class="col-12 text-center" id="cardPrateleiraAdicionarDivAnimation" style="display: none">
+    <div class="col-12" id="cardPrateleiraAdicionarDivAnimationImage" style="font-size: 180px">
+        <i class="mdi mdi-checkbox-marked-circle text-info"></i>
+    </div>
+</div>

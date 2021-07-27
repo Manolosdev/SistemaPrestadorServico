@@ -1,0 +1,73 @@
+<!-- CARD PRODUTO PESQUISAR -->
+<div class="col-12" style="max-width: 470px;padding-right: 20px;padding-left: 20px" id="cardProdutoPesquisarCardDiv">
+
+    <div class="card mb-0" id="cardProdutoPesquisarCard">
+        <div class="divLoadBlock flashit" id="cardProdutoPesquisarCardBlock" style="display: none"></div>
+        <div class="card-body bg-light" style="padding: 15px; padding-top: 8px;padding-bottom: 7px;margin-bottom: 1px">
+            <p class="text-info mb-0" style="font-size: 15px"><i class="mdi mdi-magnify"></i> Pesquisa de produto</p>
+        </div>
+        <div class="card-body bg-light" style="padding: 15px;padding-top: 5px;min-height: 72px;max-height: 72px">
+            <div class="row">
+                <div class="col" style="padding-right: 5px">
+                    <small class="text-muted">Pesquisar por</small>
+                    <input class="form-control border-custom color-default font-11" placeholder="Nome/Código/Descrição ..." style="border-right: none;max-height: 31px;min-height: 31px" id="cardProdutoPesquisarPesquisar" maxlength="30" spellcheck="false" autocomplete="off">
+                </div>
+                <div class="col" style="min-width: 110px;max-width: 110px;padding-left: 5px;padding-right: 5px">
+                    <small class="text-muted">Empresa</small>
+                    <select class="form-control border-custom font-11 color-default mb-0" style="max-height: 31px;min-height: 31px;cursor: pointer;border-right: transparent" id="cardProdutoPesquisarEmpresa">
+
+                    </select>
+                </div>
+                <div class="col" style="padding-left: 5px;max-width: 60px;max-width: 60px">
+                    <button class="btn btn-info text-center" style="font-size: 14px;padding: 3px;width: 100%;margin-top: 22px" id="cardProdutoPesquisarPesquisarBtn"><i class="mdi mdi-magnify"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex no-block bg-light" style="margin-top: 1px;cursor: default">
+            <div class="text-truncate bg-light" style="padding-left: 15px">
+                <small>Nome do produto</small>
+            </div>
+            <div class="ml-auto d-flex">
+                <div class="text-truncate bg-light" style="width: 75px">
+                    <small>Saldo disp.</small>
+                </div>
+            </div>
+        </div>
+        <div class="card-body" id="cardProdutoPesquisarListaProduto" style="padding: 0px;min-height: 261px;max-height: 261px">
+        </div>
+        <div class="card-body bg-light" style="margin-bottom: 1px;padding-bottom: 12px;padding-top: 12px;min-height: 53px;max-height: 53px">
+            <div class="row">
+                <div class="col d-none d-sm-block text-truncate" style="padding-top: 4px">
+                    <small id="cardProdutoPesquisarListaProdutoSize"><b>0</b> registro(s) encontrado(s)</small>
+                </div>
+                <div class="col text-sm-right text-center">
+                    <div class="btn-group" role="group" aria-label="Second group">
+                        <button id="cardProdutoPesquisarListaProdutoBtnPrimeiro" data-id="1" class="btn btn-secondary btn-sm" disabled title="Exibir inicio da lista de registros"><i class="mdi mdi-chevron-double-left font-13"></i></button>
+                        <button id="cardProdutoPesquisarListaProdutoBtnAnterior" data-id="1" class="btn btn-secondary btn-sm" disabled title="Exibir lista de registros anteriores"><i class="mdi mdi-chevron-left font-13"></i></button>
+                        <button id="cardProdutoPesquisarListaProdutoBtnAtual" data-id="1" class="btn btn-secondary btn-sm" disabled style="width: 40px">...</button>
+                        <button id="cardProdutoPesquisarListaProdutoBtnProximo" data-id="0" class="btn btn-secondary btn-sm" disabled title="Exibir proxima lista de registros"><i class="mdi mdi-chevron-right font-13"></i></button>
+                        <button id="cardProdutoPesquisarListaProdutoBtnUltimo" data-id="0" class="btn btn-secondary btn-sm" disabled title="Exibir final da lista de registros"><i class="mdi mdi-chevron-double-right font-13"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer bg-light" style="min-height: 61px;max-height: 61px;padding-top: 15px;padding-bottom: 15px">
+            <div class="row">
+                <div class="col" style="max-width: 80px;padding-right: 0">
+                    <button id="cardProdutoPesquisarBtnBack" type="button" class="btn btn-dark text-center font-12" style="width: 100%;min-height: 32px;max-height: 32px"><i class="mdi mdi-arrow-left"></i></button>
+                </div>
+                <div class="col" style="padding-left: 0">
+                    <button id="cardProdutoPesquisarBtnSubmit" type="button" class="btn btn-primary text-right font-11" style="width: 100%;min-height: 32px;max-height: 32px">Confirmar Produto <i class="mdi mdi-chevron-double-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- CARD ANIMATION -->
+<div class="col-12 text-center" id="cardProdutoPesquisarDivAnimation" style="display: none">
+    <div class="col-12" id="cardProdutoPesquisarDivAnimationImage" style="font-size: 180px">
+        <i class="mdi mdi-checkbox-marked-circle text-info"></i>
+    </div>
+</div>

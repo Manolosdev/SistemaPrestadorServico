@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "App"
+        }
+    },
+    "require": {
+        "mpdf/mpdf": "^8.0.1",
+        "phpmailer/phpmailer": "^6.0",
+        "quilhasoft/jasperphp":"dev-master"
+    }
+}

@@ -1,0 +1,214 @@
+<!-- CARD EDITOR CLIENTE -->
+<div class="col-12" style="max-width: 470px;padding-right: 20px;padding-left: 20px" id="cardClienteEditorCardDiv">
+
+    <div class="card mb-0" id="cardClienteEditorCard">
+        <div class="divLoadBlock flashit" id="cardClienteEditorCardBlock" style="display: none"></div>
+        <form id="cardClienteEditorForm">
+            <input hidden id="cardClienteEditorID" name="cardClienteEditorID">
+            <input hidden id="cardClienteEditorEnderecoID" name="cardClienteEditorEnderecoID">
+            <div class="card-body bg-light" style="padding: 15px; padding-top: 8px;padding-bottom: 7px;margin-bottom: 1px">
+                <p class="text-info mb-0" style="font-size: 15px" id="cardClienteEditorTitulo"><i class="mdi mdi-account-edit"></i> Editor de Cliente #</p>
+            </div>
+            <!-- TABS -->
+            <ul class="nav nav-pills custom-pills bg-light nav-justified" role="tablist" style="margin-bottom: 1px">
+                <li class="nav-item" style="height: 36px">
+                    <a class="nav-link text-center font-12 active" id="cardClienteEditorTabGeral" data-toggle="pill" href="#cardClienteEditorPanelGeral" role="tab" aria-controls="cardClienteEditorTabGeral" aria-selected="false" style="padding-left: 0px; padding-right: 0px">
+                        <p class="mb-0"><span class="d-block d-md-none"><i class="mdi mdi-information-outline"></i> Informações</span><span class="d-none d-md-block"><i class="mdi mdi-information-outline"></i> Informações Gerais</span></p>
+                    </a>
+                </li>
+                <li class="nav-item" style="height: 36px">
+                    <a class="nav-link text-center font-11" id="cardClienteEditorTabEndereco" data-toggle="pill" href="#cardClienteEditorPanelEndereco" role="tab" aria-controls="cardClienteEditorTabEndereco" aria-selected="false" style="padding-left: 0px; padding-right: 0px">
+                        <p class="mb-0"><span class="d-block d-md-none"><i class="mdi mdi-google-maps"></i> Endereço</span><span class="d-none d-md-block"><i class="mdi mdi-google-maps"></i> Endereço Principal</span></p>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <!-- TAB GERAL -->
+                <div class="tab-pane fade active show" id="cardClienteEditorPanelGeral" role="tabpanel" aria-labelledby="cardClienteEditorTabGeral">
+                    <div class="card-body bg-light" style="padding: 17px;padding-top: 8px; padding-bottom: 8px;min-height: 50px;max-height: 50px">
+                        <div class="row">
+                            <div class="col" style="padding-right: 5px;max-width: 35px">
+                                <i class="mdi mdi-information-outline text-info" style="font-size: 22px"></i>
+                            </div>
+                            <div class="col" style="padding-top: 8px">
+                                <p class="text-info mb-0 font-12">Informações públicas do cliente</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body" style="min-height: 321px;padding-top: 3px;padding-bottom: 5px">
+                        <div class="row">
+                            <div class="col-6" style="padding-right: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group font-10">Tipo Pessoa*</label>
+                                    <select class="form-control font-10" disabled id="cardClienteEditorGeralTipoPessoa" name="cardClienteEditorGeralTipoPessoa" style="min-height: 29px;max-height: 29px;cursor: pointer">
+                                        <option value="f">Pessoa Fisica</option>
+                                        <option value="j">Pessoa Juridica</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6" style="padding-left: 5px" id="cardClienteEditorDivPessoaJuridicaIcm">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group font-10">Ins. Municipal</label>
+                                    <input type="tel" class="form-control font-10" id="cardClienteEditorGeralInscricaoMunicipal" name="cardClienteEditorGeralInscricaoMunicipal" maxlength="10" placeholder="00000" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12" id="cardClienteEditorDivPessoaFisica">
+                                <div class="row">
+                                    <div class="col-6" style="padding-right: 5px">
+                                        <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                            <label class="form-group font-10">CPF*</label>
+                                            <input type="text" class="form-control font-10" readonly id="cardClienteEditorGeralCPF" name="cardClienteEditorGeralCPF" data-mask="000.000.000-00" maxlength="14" placeholder="000.000.000-00" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-6" style="padding-left: 5px">
+                                        <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                            <label class="form-group font-10">RG*</label>
+                                            <input type="tel" class="form-control font-10" id="cardClienteEditorGeralRG" name="cardClienteEditorGeralRG" maxlength="20" placeholder="0000000" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12" id="cardClienteEditorDivPessoaJuridica" style="display: none">
+                                <div class="row">
+                                    <div class="col-6" style="padding-right: 5px">
+                                        <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                            <label class="form-group font-10">CNPJ*</label>
+                                            <input type="text" class="form-control font-10" readonly id="cardClienteEditorGeralCNPJ" name="cardClienteEditorGeralCNPJ" data-mask="00.000.000/0000-00" maxlength="18" placeholder="000.000.000-00" autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col-6" style="padding-left: 5px">
+                                        <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                            <label class="form-group font-10">Ins. Estadual</label>
+                                            <input type="tel" class="form-control font-10" id="cardClienteEditorInscricaoGeralEstadual" name="cardClienteEditorGeralInscricaoEstadual" maxlength="15" placeholder="00000" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group font-10">Nome Completo*</label>
+                                    <input type="text" class="form-control font-10" id="cardClienteEditorGeralNome" name="cardClienteEditorGeralNome" maxlength="50" required placeholder="Nome completo do cliente" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group font-10">E-mail*</label>
+                                    <input type="email" class="form-control font-10" id="cardClienteEditorGeralEmail" name="cardClienteEditorGeralEmail" maxlength="50" required placeholder="cliente@email.com" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6" style="padding-right: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group font-10">Celular*</label>
+                                    <input type="text" class="form-control font-10" id="cardClienteEditorGeralCelular" name="cardClienteEditorGeralCelular" data-mask="(00) 00000-0000" maxlength="15" required placeholder="(99) 99999-9999" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-6" style="padding-left: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group font-10">Telefone</label>
+                                    <input type="text" class="form-control font-10" id="cardClienteEditorGeralTelefone" name="cardClienteEditorGeralTelefone" data-mask="(00) 0000-0000"  maxlength="14" placeholder="(99) 9999-9999" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- TAB ENDEREÇO -->
+                <div class="tab-pane fade" id="cardClienteEditorPanelEndereco" role="tabpanel" aria-labelledby="cardClienteEditorTabEndereco">
+                    <div class="card-body bg-light" style="padding: 17px;padding-top: 8px; padding-bottom: 8px;min-height: 50px;max-height: 50px">
+                        <div class="row">
+                            <div class="col" style="padding-right: 5px;max-width: 35px">
+                                <i class="mdi mdi-google-maps text-info" style="font-size: 22px"></i>
+                            </div>
+                            <div class="col" style="padding-top: 8px">
+                                <p class="text-info mb-0 font-12">Endereço principal do cliente</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body" style="min-height: 321px;padding-top: 6px;padding-bottom: 5px">
+                        <div class="row">
+                            <div class="col-8" style="padding-right: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group mb-0 font-10">Cep*</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control font-10" required maxlength="9" name="cardClienteEditorEnderecoCep" id="cardClienteEditorEnderecoCep" placeholder="99999-999" data-mask="00000-000" style="border-radius: 0px" autocomplete="off">
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-primary font-10" id="cardClienteEditorEnderecoBtn" style="width: 40px;height: 29px;padding-top: 8px;border-top-right-radius: 1px;border-bottom-right-radius: 1px">
+                                                <i class="ti ti-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8" style="padding-right: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group mb-0 font-10">Rua*</label>
+                                    <input type="text" class="form-control font-10" required maxlength="50" name="cardClienteEditorEnderecoRua" id="cardClienteEditorEnderecoRua" placeholder="Rua Paes Leme" autocomplete="off" style="border-radius: 0px">
+                                </div>
+                            </div>
+                            <div class="col-4" style="padding-left: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group mb-0  font-10">Número</label>
+                                    <input type="tel" class="form-control font-10" required maxlength="5" name="cardClienteEditorEnderecoNumero" id="cardClienteEditorEnderecoNumero" placeholder="1567" autocomplete="off" style="border-radius: 0px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group  mb-0 font-10">Referência</label>
+                                    <input type="text" class="form-control font-10" maxlength="50" name="cardClienteEditorEnderecoReferencia" id="cardClienteEditorEnderecoReferencia" placeholder="Próximo ao Vila Verde" autocomplete="off" style="border-radius: 0px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8" style="padding-right: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group  mb-0 font-10">Bairro</label>
+                                    <input type="text" class="form-control font-10" required maxlength="50" name="cardClienteEditorEnderecoBairro" id="cardClienteEditorEnderecoBairro" placeholder="Centro" autocomplete="off" style="border-radius: 0px">
+                                </div>
+                            </div>
+                            <div class="col-4" style="padding-left: 5px">
+                                <div class="form-group" style="min-height: 61px;max-height: 61px">
+                                    <label class="form-group mb-0  font-10">Cidade</label>
+                                    <input type="text" class="form-control font-10" required maxlength="50" readonly name="cardClienteEditorEnderecoCidade" id="cardClienteEditorEnderecoCidade" placeholder="Andradina" autocomplete="off" style="border-radius: 0px">
+                                </div>
+                            </div>
+                        </div>
+                        <input hidden id="cardClienteEditorEnderecoUF" name="cardClienteEditorEnderecoUF">
+                        <input hidden id="cardClienteEditorEnderecoIBGE" name="cardClienteEditorEnderecoIBGE">
+                        <div class="card-body bg-light" style="padding: 15px;margin-top: 5px">
+                            <p class="font-11 mb-0 text-justify text-truncate">(*) Endereço padrão de utilização desse cliente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-light" style="padding-top: 15px;padding-bottom: 15px">
+                <div class="row">
+                    <div class="col" style="max-width: 80px;padding-right: 0">
+                        <button id="cardClienteEditorBtnBack" type="button" class="btn btn-dark text-center font-12" style="width: 100%"><i class="mdi mdi-arrow-left"></i></button>
+                    </div>
+                    <div class="col" style="padding-left: 0">
+                        <button id="cardClienteEditorBtnSubmit" type="button" class="btn btn-success text-right font-12" style="width: 100%">Atualizar cliente <i class="mdi mdi-chevron-double-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- CARD ANIMATION -->
+<div class="col-12 text-center" id="cardClienteEditorDivAnimation" style="display: none">
+    <div class="col-12" id="cardClienteEditorDivAnimationImage" style="font-size: 180px">
+        <i class="mdi mdi-checkbox-marked-circle text-info"></i>
+    </div>
+</div>

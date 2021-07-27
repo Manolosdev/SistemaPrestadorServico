@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $APP_HOST ?>/public/template/assets/img/favicon.png">
+        <title><?php echo $tituloRelatorio ?></title>
+        <!-- STYLE PAGE ------------------------------------------------------->
+        <style type="text/css">
+            body {
+                margin: 0px;
+                color: #343a40;
+                font-family: Arial;
+            }
+            .tabelaDefault {
+                width: 900px;
+                margin-bottom: 0px;
+            }
+            .tabelaDefaultHeader {
+                vertical-align: middle;
+                background-color: #cccccc !important;
+                font-weight: bold;
+                font-size: 12px;
+            }
+            p {
+                font-size: 11px;
+                margin: 0px;
+            }
+            .pCidade {
+                font-size: 12px;
+                font-weight: bold;
+            }
+            .pActive {
+                font-weight: bold;
+            }
+            .pDisabled {
+                color: #9e9e9eed;   
+            }
+            .pResumo {
+                font-size: 13px;
+            }
+            .pResumoTotal {
+                font-weight: bold;
+                font-size: 15px;
+            }
+            .textRight {
+                text-align: right;
+            }
+            .textCenter {
+                text-align: center;
+            }
+            .borderBottom {
+                border-bottom: 1px solid #cccccc;
+            }
+        </style>
+        <?php
+        //VETOR DE MESES
+        $nomeMes = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+        $totalRegistro = 0;
+        ?>
+    </head>
+    <body>
+        <!-- HEADER DO RELATÓRIO ---------------------------------------------->
+        <table class="tabelaDefault" style="margin-bottom: 10px">
+            <tr>
+                <td style="width: 95px">
+                    <img src="<?php echo $APP_HOST ?>/public/template/assets/img/faviconRelatorio.png" style="margin-top: 5px;" height="80px">
+                </td>
+                <td>
+                    <h3 style="margin-bottom: 1px;margin-top: 10px"><?php echo strtoupper($tituloRelatorio) ?></h3>
+                    <p style="margin-bottom: 0px;margin-top: 0px">Gerado em <?php echo date('d') ?> de <?php echo $nomeMes[intval(date('m')) - 1] ?> de <?php echo date('Y') ?> às <?php echo date('H:i') ?></p>
+                    <p style="margin-bottom: 3px;margin-top: 0px">Por <b><?php echo $usuarioNome ?></b></p>
+                </td>
+            </tr>
+        </table>
+        <!-- LISTA DE REGISTROS ----------------------------------------------->
+        <?php if (count($listaRegistro) > 0) { ?>    
+            <?php foreach ($listaRegistro as $value) { ?>
+                <table class="tabelaDefault" style="background-color: #cccccc">
+                    <!-- INFORMAÇÕES DA PRATELEIRA -->
+                    <tr>
+                        <td>
+                            <p style="font-size: 13px"><b><?php echo $value['nome'] ?></b></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><?php echo $value['descricao'] ?></p>
+                        </td>
+                    </tr>
+                </table>
+                <table class="tabelaDefault" >
+                    <tr>
+                        <td style="width: 5%" class="tabelaDefaultHeader">
+                            <p>ID</p>
+                        </td>
+                        <td style="width: 10%" class="tabelaDefaultHeader">
+                            <p>Código</p>
+                        </td>
+                        <td class="tabelaDefaultHeader">
+                            <p>Nome do produto</p>
+                        </td>
+                        <td style="width: 4%" class="tabelaDefaultHeader">
+                            <p>UNI.</p>
+                        </td>
+                        <td style="width: 10%;text-align: right" class="tabelaDefaultHeader">
+                            <p>Saldo mínimo</p>
+                        </td>
+                        <td style="width: 10%;text-align: right" class="tabelaDefaultHeader">
+                            <p>Vlr. compra</p>
+                        </td>
+                        <td style="width: 10%;text-align: right" class="tabelaDefaultHeader">
+                            <p>Vlr. venda</p>
+                        </td>
+                        <td style="width: 11%;text-align: right" class="tabelaDefaultHeader">
+                            <p>Saldo disponível</p>
+                        </td>
+                    </tr>
+                    <?php if (count($value['listaProduto']) > 0) { ?>   
+                        <?php $valorCompra = 0.0 ?>
+                        <?php $valorVenda = 0.0 ?>
+                        <?php $saldoTotal = 0.0 ?>
+                        <?php foreach ($value['listaProduto'] as $produto) { ?>
+                            <?php $situacao = $produto['situacaoRegistro'] === 0 ? 'pDisabled' : '' ?>
+                            <?php $valorCompra += $produto['valorCompra'] ?>
+                            <?php $valorVenda += $produto['valorVenda'] ?>
+                            <?php $saldoTotal += $produto['saldoAtual'] ?>
+                            <tr>
+                                <td class="borderBottom" width="5%">
+                                    <p class="<?php echo $situacao ?>"><?php echo '#' . $produto['id'] ?></p>
+                                </td>
+                                <td class="borderBottom" width="10%">
+                                    <p class="<?php echo $situacao ?>"><?php echo $produto['codigoProduto'] ?></p>
+                                </td>
+                                <td class="borderBottom">
+                                    <p class="<?php echo $situacao ?>"><?php echo $produto['nome'] ?></p>
+                                </td>
+                                <td class="borderBottom" style="width: 4%">
+                                    <p class="<?php echo $situacao ?>"><?php echo $produto['unidadeMedida'] ?></p>
+                                </td>
+                                <td class="textRight borderBottom" style="width: 10%">
+                                    <p class="<?php echo $situacao ?>"><?php echo $produto['saldoMinimo'] ?></p>
+                                </td>
+                                <td class="textRight borderBottom" style="width: 10%">
+                                    <p class="<?php echo $situacao ?>"><?php echo 'R$ ' . money_format('%n', $produto['valorCompra']) ?></p>
+                                </td>
+                                <td class="textRight borderBottom" style="width: 10%">
+                                    <p class="<?php echo $situacao ?>"><?php echo 'R$ ' . money_format('%n', $produto['valorVenda']) ?></p>
+                                </td>
+                                <td class="textRight borderBottom" style="width: 11%;<?php echo ($produto['saldoMinimo'] >= $produto['saldoAtual'] ? 'background-color: #ffbc34' : '') ?>">
+                                    <p class="<?php echo $situacao ?>"><b><?php echo $produto['saldoAtual'] ?></b></p>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                        <tr>
+                            <td style="width: 5%">
+                                <p></p>
+                            </td>
+                            <td style="width: 10%">
+                                <p></p>
+                            </td>
+                            <td>
+                                <p></p>
+                            </td>
+                            <td style="width: 4%">
+                                <p></p>
+                            </td>
+                            <td style="width: 10%;text-align: right">
+                                <p></p>
+                            </td>
+                            <td style="width: 10%;text-align: right">
+                                <p class="pResumo"><b><?php echo 'R$ ' . money_format('%n', $valorCompra) ?></b></p>
+                            </td>
+                            <td style="width: 10%;text-align: right">
+                                <p class="pResumo"><b><?php echo 'R$ ' . money_format('%n', $valorVenda) ?></b></p>
+                            </td>
+                            <td style="width: 11%;text-align: right">
+                                <p class="pResumo"><b><?php echo $saldoTotal ?></b></p>
+                            </td>
+                        </tr>
+                    <?php } else { ?>
+                        <tr>
+                            <td colspan="8" class="textCenter" style="padding: 15px">
+                                <p style="font-size: 12px">- Nenhum registro encontrado -</p>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </table>
+            <?php } ?>
+        <?php } else { ?>
+            <table class="tabelaDefault">
+                <tr>
+                    <td class="textCenter">- Nenhum registro encontrado -</td>
+                </tr>
+            </table>
+        <?php } ?>
+
+    </body>
+</html>
