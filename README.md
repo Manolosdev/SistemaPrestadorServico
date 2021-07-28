@@ -60,5 +60,5 @@ _0%_ - Gerenciador de postagem da página comercial
 
 _0%_ - Controle de solicitações efetuadas pela página comercial
 
-## Considerações do autor
+## Considerações
 Sistema se encontra atualmente em desenvolvimento, caso tenha alguma dúvida ou queira contribuir com o projeto entrar em contato.
