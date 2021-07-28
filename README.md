@@ -1,4 +1,4 @@
-# ERP - Prestador de serviços [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+# Sistema Prestador de serviços - ERP [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 Sistema simples de gestão para empresas atuantes no seguimento de prestação de serviços, o sistema possui as seguintes funcionalidades: 
 * Controle de usuários, departamentos, permissões, etc.
@@ -61,4 +61,4 @@ _0%_ - Gerenciador de postagem da página comercial
 _0%_ - Controle de solicitações efetuadas pela página comercial
 
 ## Considerações do autor
-Sistema se encontra em desenvolvimento, caso tenha alguma dúvida ou queira contribuir com o projeto entrar em contato.
+Sistema se encontra atualmente em desenvolvimento, caso tenha alguma dúvida ou queira contribuir com o projeto entrar em contato.
