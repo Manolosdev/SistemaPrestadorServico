@@ -1,5 +1,4 @@
-# ERP - Prestador de serviços
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+# ERP - Prestador de serviços [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 Sistema simples de gestão para empresas atuantes no seguimento de prestação de serviços, o sistema possui as seguintes funcionalidades: 
 * Controle de usuários, departamentos, permissões, etc.
